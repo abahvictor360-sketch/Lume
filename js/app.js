@@ -172,7 +172,7 @@
         '<div class="hero__copy">' +
           '<h1 class="display gold">Discover</h1>' +
           '<p class="eyebrow">New Collection</p>' +
-          '<p class="hero__lead">Sculptural lamps that soften the edges of the evening — warm light, honest materials, quiet forms.</p>' +
+          '<p class="hero__lead">Sculptural lamps that soften the edges of the evening with warm light, honest materials, quiet forms.</p>' +
           '<a class="btn btn--gold" href="/product?id=' + featured.id + '">Shop the ' + esc(featured.name) + ' <span class="btn__icon">' + ICON.arrow + '</span></a>' +
         '</div>' +
         '<a class="hero__feature" href="/product?id=' + featured.id + '" aria-label="' + esc(featured.name) + '">' +
@@ -219,7 +219,7 @@
   function renderProduct(main) {
     var id = new URLSearchParams(location.search).get("id");
     var p = byId(id) || PRODUCTS[0];
-    document.title = p.name + " — Lume";
+    document.title = p.name + " | Lume";
     var qty = 1;
     var others = PRODUCTS.filter(function (x) { return x.id !== p.id && x.category === p.category; }).slice(0, 6);
 
@@ -300,7 +300,7 @@
       var summary = $("[data-summary]", main);
 
       if (!items.length) {
-        list.innerHTML = '<div class="empty"><img src="/img/cubo.webp" alt=""><p>Nothing here yet — find a lamp that suits your evenings.</p><a class="btn btn--gold" href="/#collection">Browse the collection <span class="btn__icon">' + ICON.arrow + '</span></a></div>';
+        list.innerHTML = '<div class="empty"><img src="/img/cubo.webp" alt=""><p>Nothing here yet. Find a lamp that suits your evenings.</p><a class="btn btn--gold" href="/#collection">Browse the collection <span class="btn__icon">' + ICON.arrow + '</span></a></div>';
         summary.hidden = true;
         return;
       }
@@ -373,7 +373,7 @@
       m.innerHTML = '<div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="ok-title">' +
         '<span class="modal__check">' + ICON.check + '</span>' +
         '<h2 id="ok-title" class="gold">Order placed</h2>' +
-        '<p>Thank you — order <strong>' + orderNo + '</strong> for ' + money(total) + '.00 is confirmed. We\'ll email you when it ships.</p>' +
+        '<p>Thank you! Order <strong>' + orderNo + '</strong> for ' + money(total) + '.00 is confirmed. We\'ll email you when it ships.</p>' +
         '<a class="btn btn--gold" href="/">Continue shopping <span class="btn__icon">' + ICON.arrow + '</span></a>' +
       '</div>';
       document.body.appendChild(m);

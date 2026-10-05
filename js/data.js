@@ -4,10 +4,10 @@ window.LUME_PRODUCTS = [
     id: "helix", name: "Helix Orb", short: ["Helix", "Orb"], price: 185, category: "ambient",
     img: "img/helix.webp",
     tagline: "A marbled glass moon held by a ribbon of brushed brass.",
-    description: "Helix Orb pairs a hand-blown marbled glass sphere with a continuous brass ribbon that glows along its inner edge. Two light sources, one sculpture — warm enough for a bedside, striking enough for a console.",
+    description: "Helix Orb pairs a hand-blown marbled glass sphere with a continuous brass ribbon that glows along its inner edge. Two light sources, one sculpture, warm enough for a bedside, striking enough for a console.",
     hotspots: [
       { label: "Marbled Glass", x: 62, y: 22, text: "Hand-blown opal glass with natural marbling diffuses light into a soft, moonlit glow." },
-      { label: "Brass Ribbon", x: 38, y: 68, text: "A single bent brass ribbon with an integrated LED strip — no visible bulbs, no harsh hotspots." }
+      { label: "Brass Ribbon", x: 38, y: 68, text: "A single bent brass ribbon with an integrated LED strip: no visible bulbs, no harsh hotspots." }
     ],
     specs: { Height: "52 cm", Light: "2700K · 800 lm", Material: "Brass, opal glass", Power: "USB-C, dimmable" }
   },
@@ -36,7 +36,7 @@ window.LUME_PRODUCTS = [
   {
     id: "luma", name: "Luma Mushroom", short: ["Luma", "Mushroom"], price: 120, category: "ambient",
     img: "img/luma.webp",
-    tagline: "Swirled shade, ribbed sage base — playful and warm.",
+    tagline: "Swirled shade, ribbed sage base. Playful and warm.",
     description: "The Luma Mushroom pairs a swirl-textured dome with a ribbed sage-green base. Its light pools gently downward, perfect for reading corners and nightstands.",
     hotspots: [
       { label: "Swirl Shade", x: 30, y: 26, text: "A spiralling ridged shade spreads light in a soft gradient." },
@@ -72,7 +72,7 @@ window.LUME_PRODUCTS = [
     tagline: "An edge-lit column that turns your desk into a calm studio.",
     description: "Quiet Beam hides a full-length LED channel inside a seamless aluminium arm. It washes your workspace evenly with zero flicker and a touch dimmer at its base.",
     hotspots: [
-      { label: "Edge-lit LED", x: 66, y: 20, text: "A continuous diffused LED channel along the arm — no visible diodes." },
+      { label: "Edge-lit LED", x: 66, y: 20, text: "A continuous diffused LED channel along the arm, with no visible diodes." },
       { label: "Touch Dimmer", x: 34, y: 76, text: "Capacitive touch control with stepless dimming and memory." }
     ],
     specs: { Height: "45 cm", Light: "3000–5000K · 900 lm", Material: "Aluminium", Power: "USB-C, touch dimmer" }
@@ -84,7 +84,7 @@ window.LUME_PRODUCTS = [
     description: "Soft Orbit's circular head floods your desk with shadow-free light. The silicone neck bends anywhere, and the built-in battery lasts all evening.",
     hotspots: [
       { label: "Halo Head", x: 64, y: 16, text: "A round, frosted diffuser spreads light evenly without glare." },
-      { label: "Flexible Neck", x: 32, y: 58, text: "Bend and hold at any angle — the neck remembers its position." }
+      { label: "Flexible Neck", x: 32, y: 58, text: "Bend and hold at any angle and the neck remembers its position." }
     ],
     specs: { Height: "40 cm", Light: "3 colour temps · 500 lm", Material: "ABS, silicone", Power: "Rechargeable, 8 h" }
   },

@@ -58,7 +58,7 @@
       e.preventDefault();
       if (!validate(form)) return;
       var d = new FormData(form);
-      var body = d.get("message") + "\n\n— " + d.get("name") + " (" + d.get("email") + ")";
+      var body = d.get("message") + "\n\nFrom: " + d.get("name") + " (" + d.get("email") + ")";
       var href = "mailto:" + cfg.contactEmail + "?subject=" + encodeURIComponent("[" + d.get("topic") + "] Message from " + d.get("name")) + "&body=" + encodeURIComponent(body);
       location.href = href;
       setStatus(form, "ok", "Your email app should open with the message ready to send. If it doesn't, write to us at " + h.esc(cfg.contactEmail) + ".");
@@ -151,11 +151,11 @@
         ["orders", "Orders &amp; pricing", "<p>All prices are shown in US dollars and include applicable taxes unless stated otherwise. Placing an order is an offer to buy; a contract is formed when we confirm your order by email.</p><p>We work hard to keep prices and product details accurate. If we discover an error after you order, we'll contact you and you may cancel for a full refund. We may limit quantities or refuse orders at our discretion.</p>"],
         ["payment", "Payment", "<p>Payment is taken when your order is confirmed. We accept major credit and debit cards and other methods shown at checkout. Payments are processed by secure third-party providers; we never store full card numbers.</p>"],
         ["shipping", "Shipping &amp; delivery", "<p>Shipping is free on all orders. Orders usually leave our studio within 1–2 business days and arrive within 2–4 business days. Delivery estimates are not guaranteed. Risk of loss passes to you on delivery.</p>"],
-        ["returns", "Returns &amp; refunds", "<p>You may return any item within <strong>30 days of delivery</strong> for a full refund, provided it is unused, undamaged, and in its original packaging. Return shipping is free — contact us at <a href=\"mailto:" + email + "\">" + email + "</a> to receive a prepaid label.</p><p>Refunds are issued to your original payment method within 5–10 business days of the return being received and inspected. If an item arrives damaged, tell us within 7 days and we'll replace or refund it.</p>"],
+        ["returns", "Returns &amp; refunds", "<p>You may return any item within <strong>30 days of delivery</strong> for a full refund, provided it is unused, undamaged, and in its original packaging. Return shipping is free. Contact us at <a href=\"mailto:" + email + "\">" + email + "</a> to receive a prepaid label.</p><p>Refunds are issued to your original payment method within 5–10 business days of the return being received and inspected. If an item arrives damaged, tell us within 7 days and we'll replace or refund it.</p>"],
         ["warranty", "Warranty", "<p>Lume lamps include a <strong>two-year limited warranty</strong> against defects in materials and workmanship under normal use. The warranty does not cover wear and tear, accidental damage, misuse, unauthorised modification, or use with incompatible power supplies or bulbs.</p>"],
         ["safety", "Product use &amp; safety", "<p>Follow the instructions supplied with each lamp. Use only the included or recommended power adapters and bulbs, keep lamps away from water and heat sources, and unplug before cleaning. Lamps are not toys and should be kept out of reach of young children.</p>"],
         ["accounts", "Accounts", "<p>If you create an account, you're responsible for keeping your login details confidential and for activity under your account. Tell us promptly about any unauthorised use. We may suspend accounts that breach these terms.</p>"],
-        ["ip", "Intellectual property", "<p>All content on this site — including text, product designs, photography, logos, and code — belongs to Lume or its licensors and is protected by intellectual-property laws. You may not copy or reuse it without our written permission.</p>"],
+        ["ip", "Intellectual property", "<p>All content on this site, including text, product designs, photography, logos, and code, belongs to Lume or its licensors and is protected by intellectual-property laws. You may not copy or reuse it without our written permission.</p>"],
         ["liability", "Limitation of liability", "<p>To the fullest extent permitted by law, Lume is not liable for indirect, incidental, or consequential losses arising from your use of the site or our products. Our total liability for any claim is limited to the amount you paid for the product concerned. Nothing in these terms limits rights you have under consumer-protection law.</p>"],
         ["changes", "Changes to these terms", "<p>We may update these terms from time to time. The version posted on this page at the time of your order applies to that order.</p>"],
         ["contact", "Contact", "<p>Questions about these terms? Email <a href=\"mailto:" + email + "\">" + email + "</a> or visit our <a href=\"/contact\">contact page</a>.</p>"]
@@ -167,10 +167,10 @@
     legal(main, h, "Privacy Policy",
       "Your privacy matters to us. This policy explains what personal information Lume Lighting collects, how we use it, and the choices you have.",
       [
-        ["collect", "Information we collect", "<ul><li><strong>Account details</strong> — your name, email address, and password (stored securely as a hash) when you sign up.</li><li><strong>Order details</strong> — shipping address, contact details, and the items you purchase.</li><li><strong>Messages</strong> — anything you send us through the contact form or by email.</li><li><strong>Technical data</strong> — basic device and browser information, and pages visited, used to keep the site working and secure.</li></ul><p>We do not collect or store full payment card numbers; payments are handled by our payment processor.</p>"],
+        ["collect", "Information we collect", "<ul><li><strong>Account details</strong>: your name, email address, and password (stored securely as a hash) when you sign up.</li><li><strong>Order details</strong>: shipping address, contact details, and the items you purchase.</li><li><strong>Messages</strong>: anything you send us through the contact form or by email.</li><li><strong>Technical data</strong>: basic device and browser information, and pages visited, used to keep the site working and secure.</li></ul><p>We do not collect or store full payment card numbers; payments are handled by our payment processor.</p>"],
         ["use", "How we use your information", "<ul><li>To process and deliver your orders, and handle returns and warranty claims.</li><li>To create and manage your account.</li><li>To reply to your questions and provide customer support.</li><li>To send order updates and, only if you opt in, occasional news about new collections.</li><li>To protect our site and customers against fraud and abuse.</li></ul>"],
         ["storage", "Cookies &amp; local storage", "<p>We use your browser's local storage to remember your cart and keep you signed in. We don't use third-party advertising cookies. You can clear this data at any time from your browser settings; doing so will empty your cart and sign you out.</p>"],
-        ["sharing", "Sharing your information", "<p>We never sell your personal information. We share it only with service providers who help us run the store — such as payment processors, shipping carriers, and hosting and authentication providers — and only as needed for them to perform those services, or where required by law.</p>"],
+        ["sharing", "Sharing your information", "<p>We never sell your personal information. We share it only with service providers who help us run the store (such as payment processors, shipping carriers, and hosting and authentication providers), and only as needed for them to perform those services, or where required by law.</p>"],
         ["retention", "How long we keep it", "<p>We keep account information while your account is active and order records for as long as needed for accounting, tax, and warranty purposes. You can ask us to delete your account at any time.</p>"],
         ["rights", "Your rights", "<p>Depending on where you live, you may have the right to access, correct, delete, or export your personal information, and to object to or restrict certain processing. To make a request, email <a href=\"mailto:" + email + "\">" + email + "</a>. We'll respond within 30 days.</p>"],
         ["security", "Security", "<p>We use industry-standard safeguards, including encrypted connections (HTTPS) and hashed passwords, to protect your information. No method of transmission or storage is completely secure, but we work to protect your data and will notify you of any breach as required by law.</p>"],
@@ -194,7 +194,7 @@
           '<h1 class="display display--md gold">' + title + '</h1>' +
           '<p class="eyebrow">' + sub + '</p>' +
           formHtml +
-          (demo ? '<p class="auth__demo">Demo mode — accounts are saved in this browser only.</p>' : "") +
+          (demo ? '<p class="auth__demo">Demo mode: accounts are saved in this browser only.</p>' : "") +
         '</div>' +
       '</section>';
     bindPwToggles(main);
@@ -277,7 +277,7 @@
       try {
         var r = await window.LumeAuth.signUp({ name: form.elements.name.value, email: form.email.value, password: form.password.value });
         if (r.needsConfirmation) {
-          setStatus(form, "ok", "Almost there — check " + h.esc(form.email.value.trim()) + " for a link to confirm your account.");
+          setStatus(form, "ok", "Almost there! Check " + h.esc(form.email.value.trim()) + " for a link to confirm your account.");
         } else {
           setStatus(form, "ok", "Welcome to Lume! Redirecting…");
           location.href = nextParam();
@@ -310,7 +310,7 @@
           '</div>' +
           '<div class="card account__side">' +
             '<h2 class="form__title">Account</h2>' +
-            '<dl class="summary__rows"><div><dt>Name</dt><dd>' + h.esc(u.name || "—") + '</dd></div><div><dt>Email</dt><dd>' + h.esc(u.email) + '</dd></div></dl>' +
+            '<dl class="summary__rows"><div><dt>Name</dt><dd>' + h.esc(u.name || "Not set") + '</dd></div><div><dt>Email</dt><dd>' + h.esc(u.email) + '</dd></div></dl>' +
             '<a class="link-row" href="/cart">View cart</a>' +
             '<a class="link-row" href="/contact">Get help</a>' +
             '<button class="btn btn--ghost btn--wide" data-signout>Sign out</button>' +
