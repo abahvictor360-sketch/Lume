@@ -56,6 +56,17 @@ window.LUME_PRODUCTS = [
     specs: { Height: "34 cm", Light: "2700K · 500 lm", Material: "Linen, steel", Power: "E14, cord switch" }
   },
   {
+    id: "dune", name: "Dune Wave", short: ["Dune", "Wave"], price: 135, category: "ambient",
+    img: "img/dune.webp",
+    tagline: "Sculpted ripples that turn light into texture.",
+    description: "Dune Wave is a printed shade of flowing, wind-swept ridges set on a pale wooden base. Switched on, every ripple catches the glow, casting soft rhythmic shadows across the room.",
+    hotspots: [
+      { label: "Rippled Shade", x: 66, y: 24, text: "Hundreds of fine ridges flow around the shade, diffusing light into a warm, textured glow." },
+      { label: "Ash Wood Base", x: 34, y: 86, text: "A turned ash base with a soft-touch switch and a non-slip underside." }
+    ],
+    specs: { Height: "32 cm", Light: "2700K · 450 lm", Material: "Plant-based PLA, ash", Power: "USB-C, dimmable" }
+  },
+  {
     id: "beam", name: "Quiet Beam", short: ["Quiet", "Beam"], price: 150, category: "task",
     img: "img/beam.webp",
     tagline: "An edge-lit column that turns your desk into a calm studio.",
@@ -76,6 +87,17 @@ window.LUME_PRODUCTS = [
       { label: "Flexible Neck", x: 32, y: 58, text: "Bend and hold at any angle — the neck remembers its position." }
     ],
     specs: { Height: "40 cm", Light: "3 colour temps · 500 lm", Material: "ABS, silicone", Power: "Rechargeable, 8 h" }
+  },
+  {
+    id: "linea", name: "Linea Clamp", short: ["Linea", "Clamp"], price: 125, category: "task",
+    img: "img/linea.webp",
+    tagline: "A long, slim light bar on a flexible arm that clamps to any desk.",
+    description: "Linea Clamp throws a wide, even wash of light across your whole desk from a slim LED bar. The gooseneck arm bends to any angle and the steel clamp keeps your desk surface clear.",
+    hotspots: [
+      { label: "Light Bar", x: 64, y: 30, text: "A 45 cm LED bar with an anti-glare diffuser lights the full width of your desk." },
+      { label: "Desk Clamp", x: 30, y: 82, text: "A steel clamp fits desks up to 6 cm thick and saves space on the surface." }
+    ],
+    specs: { Height: "60 cm reach", Light: "3000–6000K · 1000 lm", Material: "Aluminium, steel", Power: "USB, touch dimmer" }
   },
   {
     id: "flex", name: "Flex Task", short: ["Flex", "Task"], price: 85, category: "task",

@@ -26,6 +26,12 @@
     check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>',
     chev: '<svg viewBox="0 0 40 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="m3 2 6 6-6 6" opacity=".35"/><path d="m15 2 6 6-6 6" opacity=".65"/><path d="m27 2 6 6-6 6"/></svg>',
     blob: '<svg viewBox="0 0 80 80" fill="none"><path d="M40 10c13 0 18 9 25 16s9 20 0 29-13 16-27 15-22-8-25-19 0-20 6-27 8-14 21-14Z" stroke="rgba(255,255,255,.55)" stroke-width="1.4"/><path d="M40 15c11 0 15 8 21 14s7 17-1 25-11 13-22 12" stroke="rgba(255,255,255,.18)" stroke-width="5" stroke-linecap="round"/><path d="M24 30c3-6 8-9 14-10" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/></svg>',
+    user: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 20c1.2-3.6 4-5.4 7.2-5.4s6 1.8 7.2 5.4"/></svg>',
+    mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5"/><path d="m4.5 7 7.5 6 7.5-6"/></svg>',
+    phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M6.5 3.5h3l1.5 4-2 1.3a10 10 0 0 0 5.2 5.2l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A16 16 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2Z"/></svg>',
+    pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>',
+    clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>',
+    eye: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></svg>',
     shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>'
   };
 
@@ -75,7 +81,8 @@
     var nav = [
       { href: "/", label: "Discover", key: "home" },
       { href: "/#collection", label: "Collection", key: "collection" },
-      { href: "/cart", label: "Cart", key: "cart" }
+      { href: "/cart", label: "Cart", key: "cart" },
+      { href: "/contact", label: "Contact", key: "contact" }
     ];
     var header = document.createElement("header");
     header.className = "topbar";
@@ -88,7 +95,10 @@
             return '<a href="' + n.href + '"' + (n.key === page ? ' aria-current="page"' : "") + '>' + n.label + '</a>';
           }).join("") +
         '</nav>' +
-        '<a class="icon-btn cart-btn" href="/cart" aria-label="Cart">' + ICON.bag + '<span class="badge" data-badge hidden>0</span></a>' +
+        '<div class="topbar__actions">' +
+          '<a class="icon-btn account-btn" href="/login" data-account-link aria-label="Log in">' + ICON.user + '</a>' +
+          '<a class="icon-btn cart-btn" href="/cart" aria-label="Cart">' + ICON.bag + '<span class="badge" data-badge hidden>0</span></a>' +
+        '</div>' +
       '</div>';
     document.body.prepend(header);
 
@@ -102,7 +112,8 @@
         '<nav class="drawer__nav">' +
           nav.map(function (n, i) { return '<a href="' + n.href + '" data-close-menu><span>0' + (i + 1) + '</span>' + n.label + '</a>'; }).join("") +
         '</nav>' +
-        '<p class="drawer__foot">Lighting crafted for quiet evenings.<br>Free shipping &amp; 30-day returns.</p>' +
+        '<div class="drawer__auth" data-drawer-auth></div>' +
+        '<p class="drawer__foot"><a href="/terms">Terms</a> · <a href="/privacy">Privacy</a><br>Lighting crafted for quiet evenings.<br>Free shipping &amp; 30-day returns.</p>' +
       '</aside>';
     document.body.appendChild(drawer);
 
@@ -123,7 +134,14 @@
   function renderFooter() {
     var f = document.createElement("footer");
     f.className = "site-footer";
-    f.innerHTML = '<div class="wrap"><span class="brand">Lume</span><span>© ' + new Date().getFullYear() + ' Lume Lighting. Crafted for quiet evenings.</span></div>';
+    f.innerHTML =
+      '<div class="wrap footer__grid">' +
+        '<div class="footer__brand"><span class="brand">Lume</span><p>Sculptural lamps for warm, quiet evenings.</p></div>' +
+        '<nav class="footer__col" aria-label="Shop"><h4>Shop</h4><a href="/#collection">Collection</a><a href="/cart">Cart</a><a href="/login" data-account-link>Account</a></nav>' +
+        '<nav class="footer__col" aria-label="Help"><h4>Help</h4><a href="/contact">Contact us</a><a href="/contact#faq">FAQ</a><a href="/terms#returns">Shipping &amp; returns</a></nav>' +
+        '<nav class="footer__col" aria-label="Legal"><h4>Legal</h4><a href="/terms">Terms &amp; Conditions</a><a href="/privacy">Privacy Policy</a></nav>' +
+      '</div>' +
+      '<div class="wrap footer__base"><span>© ' + new Date().getFullYear() + ' Lume Lighting. All rights reserved.</span><span>Free shipping · 30-day returns</span></div>';
     document.body.appendChild(f);
   }
 
@@ -340,6 +358,15 @@
     function placeOrder() {
       var total = cartTotal();
       var orderNo = "LM-" + Math.floor(100000 + Math.random() * 900000);
+      var count = cartCount();
+      if (window.LumeAuth) window.LumeAuth.getUser().then(function (u) {
+        if (!u) return;
+        try {
+          var list = JSON.parse(localStorage.getItem("lume-orders") || "[]") || [];
+          list.push({ id: orderNo, email: u.email, total: total, count: count, date: Date.now() });
+          localStorage.setItem("lume-orders", JSON.stringify(list.slice(-50)));
+        } catch (e) { /* storage unavailable */ }
+      });
       writeCart({});
       var m = document.createElement("div");
       m.className = "modal";
@@ -394,14 +421,43 @@
     });
   }
 
+  // ---------- account state ----------
+  function initAccountUI() {
+    var A = window.LumeAuth;
+    if (!A) return;
+    function paint(user) {
+      $all("[data-account-link]").forEach(function (a) {
+        a.setAttribute("href", user ? "/account" : "/login");
+        if (a.classList.contains("icon-btn")) {
+          a.setAttribute("aria-label", user ? "Your account" : "Log in");
+          a.innerHTML = user ? '<span class="avatar">' + esc(initials(user)) + '</span>' : ICON.user;
+        }
+      });
+      var d = $("[data-drawer-auth]");
+      if (d) d.innerHTML = user
+        ? '<a class="btn btn--ghost" href="/account">My account</a>'
+        : '<a class="btn btn--ghost" href="/login">Log in</a><a class="btn btn--gold" href="/signup">Sign up</a>';
+    }
+    A.getUser().then(paint);
+    A.onChange(paint);
+  }
+  function initials(u) {
+    var n = (u.name || u.email || "?").trim();
+    var parts = n.split(/\s+/);
+    return ((parts[0] || "")[0] + ((parts[1] || "")[0] || "")).toUpperCase();
+  }
+
   // ---------- boot ----------
   var page = document.body.getAttribute("data-page");
   renderHeader(page);
   var main = $("#main");
+  var helpers = { $: $, $all: $all, esc: esc, money: money, ICON: ICON, toast: toast, initials: initials };
   if (page === "home") renderHome(main);
   else if (page === "product") renderProduct(main);
   else if (page === "cart") renderCart(main);
+  else if (window.LumePages && window.LumePages[page]) window.LumePages[page](main, helpers);
   renderFooter();
   updateBadge();
+  initAccountUI();
   window.addEventListener("storage", function (e) { if (e.key === CART_KEY) updateBadge(); });
 })();
